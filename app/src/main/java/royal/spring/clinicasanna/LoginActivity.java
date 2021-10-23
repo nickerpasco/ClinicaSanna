@@ -15,8 +15,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button signUp = findViewById(R.id.BtnLogin);
-        TextView TvRegitro = findViewById(R.id.signUp);
+        Button signUp = findViewById(R.id.button);
+        TextView TvRegitro = findViewById(R.id.textView3);
+
+        signUp.setBackgroundResource(android.R.drawable.btn_default);
 
 
         signUp.setOnClickListener(new View.OnClickListener() {
