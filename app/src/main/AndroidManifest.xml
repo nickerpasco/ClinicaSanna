@@ -9,22 +9,25 @@
         android:roundIcon="@drawable/logo_commerce"
         android:supportsRtl="true"
         android:theme="@style/Theme.ClinicaSanna">
-        <activity android:name=".ListadoFuncionesVitalesActivity"></activity>
+        <activity android:name=".RegistroFuncionesVitalesActivity" />
         <activity android:name=".CambiarContraseniaActivity" />
         <activity android:name=".RecuperarContraseniaActivity" />
         <activity android:name=".InicarLoginActivity" />
         <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ListadosActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".RegistroActivity"
             android:exported="true" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

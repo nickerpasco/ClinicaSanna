@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroFuncionesVitalesActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/size_30"
+        android:paddingTop="@dimen/size_30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/biConfirmFuncionesVitales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/btn_primary_round"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:scaleType="fitCenter"
+
+            app:srcCompat="@drawable/ic_baseline_check_24"
+            app:tint="@color/sanna" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/size_15"
+            android:src="@drawable/ic_funcion_vital_in"
+            app:tint="@color/sanna" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="Registro de Funciones Vitales"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorGray"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+
+                android:id="@+id/edPaciente"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_40"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/background_border_round"
+                android:gravity="center_vertical"
+                android:hint="Paciente"
+                android:inputType="textCapSentences"
+                android:maxLength="16"
+                android:paddingHorizontal="@dimen/size_20"
+                android:textSize="@dimen/text10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_primary_round"
+                android:maxWidth="48dp"
+                android:maxHeight="48dp"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edPaciente"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_round_search_24"
+                app:tint="@color/sanna" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+
+        <EditText
+
+            android:id="@+id/edSaturacion"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/size_40"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/background_border_round"
+            android:gravity="center_vertical"
+            android:hint="Saturación de Oxígeno (%)"
+            android:inputType="numberDecimal"
+            android:maxLength="5"
+            android:paddingHorizontal="@dimen/size_20"
+            android:textSize="@dimen/text10" />
+
+        <EditText
+
+            android:id="@+id/edTemperatura"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/size_40"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/background_border_round"
+            android:gravity="center_vertical"
+            android:hint="Temperatura (°)"
+            android:inputType="numberDecimal"
+            android:maxLength="5"
+            android:paddingHorizontal="@dimen/size_20"
+            android:textSize="@dimen/text10" />
+
+        <EditText
+
+            android:id="@+id/edPeso"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/size_40"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/background_border_round"
+            android:gravity="center_vertical"
+            android:hint="Peso (Kg)"
+            android:inputType="numberDecimal"
+            android:maxLength="5"
+            android:paddingHorizontal="@dimen/size_20"
+            android:textSize="@dimen/text10" />
+
+        <EditText
+            android:id="@+id/edTalla"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/size_40"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/background_border_round"
+            android:gravity="center_vertical"
+            android:hint="Talla (m)"
+            android:inputType="numberDecimal"
+            android:maxLength="5"
+            android:paddingHorizontal="@dimen/size_20"
+            android:textSize="@dimen/text10" />
+
+        <EditText
+            android:id="@+id/edImc"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/size_40"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/background_border_round"
+            android:gravity="center_vertical"
+            android:hint="IMC"
+            android:inputType="numberDecimal"
+            android:maxLength="5"
+            android:paddingHorizontal="@dimen/size_20"
+            android:textSize="@dimen/text10" />
+
+        <EditText
+            android:id="@+id/Comentario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/background_border_round"
+            android:gravity="center_vertical"
+            android:hint="Comentarios"
+            android:inputType="textMultiLine"
+            android:maxLength="150"
+            android:maxLines="3"
+            android:minLines="3"
+            android:paddingHorizontal="@dimen/size_20"
+            android:textSize="@dimen/text10" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

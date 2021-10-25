@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ListadoFuncionesVitalesActivity extends AppCompatActivity {
+public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listado_funciones_vitales);
+        setContentView(R.layout.activity_registro_funciones_vitales);
     }
 }
