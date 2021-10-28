@@ -38,7 +38,7 @@
                     android:id="@+id/imageView3"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_marginve="@dimen/size_15"
+
                     android:src="@drawable/ic_funcion_vital_out"
                     app:tint="@color/sanna" />
 
