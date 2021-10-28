@@ -87,7 +87,6 @@ public class InicarLoginActivity extends AppCompatActivity {
 
 
 
-
         DBHelper dbHelper;
         dbHelper = new DBHelper(this); // INSTANCIAR PAPUS
         try {
