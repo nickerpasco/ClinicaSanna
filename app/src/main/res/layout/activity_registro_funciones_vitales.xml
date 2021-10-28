@@ -102,15 +102,14 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_20">
 
                     <EditText
 
                         android:id="@+id/edPaciente"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/size_40"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="4dp"
                         android:background="@drawable/background_border_round"
                         android:gravity="center_vertical"
                         android:hint="Paciente"
@@ -119,21 +118,21 @@
                         android:paddingHorizontal="@dimen/size_20"
                         android:textSize="@dimen/text10"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+                        app:layout_constraintEnd_toStartOf="@+id/btnBuscaPaciente"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="UnknownId" />
 
                     <ImageButton
-                        android:id="@+id/imageButton3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:id="@+id/btnBuscaPaciente"
+                        android:layout_width="38dp"
+                        android:layout_height="0dp"
                         android:layout_gravity="bottom"
-                        android:layout_marginTop="16dp"
+
+                        android:layout_marginStart="8dp"
                         android:background="@drawable/btn_primary_round"
-                        android:maxWidth="48dp"
-                        android:maxHeight="48dp"
-                        android:minWidth="48dp"
-                        android:minHeight="48dp"
+                        android:minWidth="38dp"
+                        android:minHeight="38dp"
                         android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -215,10 +214,35 @@
                     android:inputType="numberDecimal"
                     android:maxLength="5"
                     android:paddingHorizontal="@dimen/size_20"
+                    android:textIsSelectable="false"
                     android:textSize="@dimen/text10" />
 
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:background="@drawable/background_border_round"
+                    android:paddingTop="5dp"
+                    android:textColorHint="@color/sanna">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtImc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_primary_round"
+                        android:hint="Índice de masa corporal (IMC)"
+                        android:inputType="none"
+                        android:paddingHorizontal="@dimen/size_20"
+                        android:paddingVertical="5dp"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:longClickable="false"
+                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <EditText
-                    android:id="@+id/Comentario"
+                    android:id="@+id/edComentario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/size_20"
