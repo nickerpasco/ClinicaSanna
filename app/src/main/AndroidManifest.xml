@@ -9,14 +9,15 @@
         android:roundIcon="@drawable/logo_commerce"
         android:supportsRtl="true"
         android:theme="@style/Theme.ClinicaSanna">
+        <activity
+            android:name=".RegistroPacienteActivity"
+            android:exported="false" />
         <activity android:name=".RegistroFuncionesVitalesActivity" />
         <activity android:name=".CambiarContraseniaActivity" />
         <activity android:name=".RecuperarContraseniaActivity" />
         <activity android:name=".InicarLoginActivity" />
         <activity android:name=".ui.MainActivity" />
-        <activity android:name=".ListadosActivity">
-
-        </activity>
+        <activity android:name=".ListadosActivity"></activity>
         <activity
             android:name=".RegistroActivity"
             android:exported="true" />
