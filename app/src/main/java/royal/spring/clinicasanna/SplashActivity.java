@@ -9,6 +9,12 @@ import android.os.Handler;
 public class SplashActivity extends AppCompatActivity {
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
@@ -16,8 +22,14 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+
                 startActivity(new Intent(SplashActivity.this,InicarLoginActivity.class));
             }
-        },3);
+        },2000);
+
+
+
+
+
     }
 }
