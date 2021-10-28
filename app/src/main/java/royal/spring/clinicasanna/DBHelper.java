@@ -21,7 +21,7 @@ import royal.spring.clinicasanna.clases.FuncionesVitales;
 
 public class DBHelper extends OrmLiteSqliteOpenHelper {
 
-    public static final String DB_NAME = "Llamagas.db";
+    public static final String DB_NAME = "Sanna.db";
     private static final int DB_VERSION = 1;
 
 
