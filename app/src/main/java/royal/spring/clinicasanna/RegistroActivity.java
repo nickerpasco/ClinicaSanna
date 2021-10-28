@@ -40,18 +40,13 @@ public class RegistroActivity extends AppCompatActivity {
         BtnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 /*
                 EsperarTask d = new EsperarTask();
                 d.setContext(RegistroActivity.this);
                 d.execute();
 
                  */
-
                 GuardarUsuario();
-
-
             }
         });
     }
@@ -59,9 +54,7 @@ public class RegistroActivity extends AppCompatActivity {
     private void GuardarUsuario() {
         DBHelper dbHelper;
         dbHelper = new DBHelper(this); // INSTANCIAR PAPUS
-
         try {
-
             Usuario usuario = new Usuario();
             usuario.setApellidosNombres(TxtTxtApellidos.getText().toString());
             usuario.setCelular(TxtCelularPNuevo.getText().toString());
@@ -71,13 +64,9 @@ public class RegistroActivity extends AppCompatActivity {
             dbHelper.create(usuario);
             List<Usuario> lis = (ArrayList<Usuario>) dbHelper.getAll(Usuario.class);
             Toast.makeText(this, "" + lis.get(0).getApellidosNombres(), Toast.LENGTH_SHORT).show();
-
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-
     }
 
 
