@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 import royal.spring.clinicasanna.clases.FuncionesVitales;
+import royal.spring.clinicasanna.clases.Usuario;
 
 public class DBHelper extends OrmLiteSqliteOpenHelper {
 
@@ -35,7 +36,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         try {
 
             // Create Table with given table name with columnName
-            TableUtils.createTable(cs, FuncionesVitales.class);
+            TableUtils.createTable(cs, Usuario.class);
 
 
         } catch (SQLException e) {
