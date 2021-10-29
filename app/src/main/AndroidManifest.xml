@@ -19,7 +19,8 @@
         <activity android:name=".RecuperarContraseniaActivity" />
         <activity android:name=".InicarLoginActivity" />
         <activity android:name=".ui.MainActivity" />
-        <activity android:name=".ListadosActivity"></activity>
+        <activity android:name=".ListadosActivity">
+        </activity>
         <activity
             android:name=".RegistroActivity"
             android:exported="true" />

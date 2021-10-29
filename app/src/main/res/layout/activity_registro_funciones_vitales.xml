@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/atrasPrioridad"
+                android:id="@+id/btnAtrasFV"
                 android:layout_width="37dp"
                 android:layout_height="34dp"
                 android:layout_marginTop="8dp"
@@ -37,7 +37,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/white" />
-            />
+
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -54,7 +54,7 @@
                 app:tint="@color/white" />
 
             <ImageView
-                android:id="@+id/BtnAbrirModal"
+                android:id="@+id/BtnRegistroFV"
                 android:layout_width="36dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="100dp"
@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingHorizontal="@dimen/size_30"
-                android:paddingTop="@dimen/size_30">
+                android:paddingVertical="@dimen/size_30">
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -114,7 +114,7 @@
                         android:gravity="center_vertical"
                         android:hint="Paciente"
                         android:inputType="textCapSentences"
-                        android:maxLength="16"
+                        android:maxLength="40"
                         android:paddingHorizontal="@dimen/size_20"
                         android:textSize="@dimen/text10"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,7 +158,7 @@
                     android:gravity="center_vertical"
                     android:hint="Saturación de Oxígeno (%)"
                     android:inputType="numberDecimal"
-                    android:maxLength="5"
+                    android:maxLength="6"
                     android:paddingHorizontal="@dimen/size_20"
                     android:textSize="@dimen/text10" />
 
@@ -172,7 +172,7 @@
                     android:gravity="center_vertical"
                     android:hint="Temperatura (°)"
                     android:inputType="numberDecimal"
-                    android:maxLength="5"
+                    android:maxLength="6"
                     android:paddingHorizontal="@dimen/size_20"
                     android:textSize="@dimen/text10" />
 
@@ -186,7 +186,7 @@
                     android:gravity="center_vertical"
                     android:hint="Peso (Kg)"
                     android:inputType="numberDecimal"
-                    android:maxLength="5"
+                    android:maxLength="6"
                     android:paddingHorizontal="@dimen/size_20"
                     android:textSize="@dimen/text10" />
 
@@ -199,23 +199,10 @@
                     android:gravity="center_vertical"
                     android:hint="Talla (m)"
                     android:inputType="numberDecimal"
-                    android:maxLength="5"
+                    android:maxLength="6"
                     android:paddingHorizontal="@dimen/size_20"
                     android:textSize="@dimen/text10" />
 
-                <EditText
-                    android:id="@+id/edImc"
-                    android:layout_width="fill_parent"
-                    android:layout_height="@dimen/size_40"
-                    android:layout_marginTop="@dimen/size_20"
-                    android:background="@drawable/background_border_round"
-                    android:gravity="center_vertical"
-                    android:hint="IMC"
-                    android:inputType="numberDecimal"
-                    android:maxLength="5"
-                    android:paddingHorizontal="@dimen/size_20"
-                    android:textIsSelectable="false"
-                    android:textSize="@dimen/text10" />
 
                 <com.google.android.material.textfield.TextInputLayout
 
