@@ -18,7 +18,7 @@
         <activity android:name=".CambiarContraseniaActivity" />
         <activity android:name=".RecuperarContraseniaActivity" />
         <activity android:name=".InicarLoginActivity" />
-        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.ListaFuncionesVitalesActivity" />
         <activity android:name=".ListadosActivity">
         </activity>
         <activity

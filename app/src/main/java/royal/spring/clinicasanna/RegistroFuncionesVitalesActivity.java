@@ -10,20 +10,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 import java.sql.SQLException;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 import royal.spring.clinicasanna.clases.FuncionesVitales;
-import royal.spring.clinicasanna.clases.Usuario;
-import royal.spring.clinicasanna.ui.MainActivity;
+import royal.spring.clinicasanna.ui.ListaFuncionesVitalesActivity;
 
 public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
     ImageView btnRegistroFV, btnAtras;
@@ -121,7 +116,7 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
                 funcionesV.setComentario(edComentario.getText().toString());
                 dbHelper.create(funcionesV);
                 Toast.makeText(this, "Datos Registrados", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                Intent i = new Intent(getApplicationContext(), ListaFuncionesVitalesActivity.class);
                 startActivity(i);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
