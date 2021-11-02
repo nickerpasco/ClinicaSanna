@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="10dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -23,7 +22,9 @@
             <View
                 android:layout_width="5dp"
                 android:layout_height="match_parent"
-                android:background="@color/colorPrimary"></View>
+                android:background="@color/colorPrimary">
+
+            </View>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -31,7 +32,7 @@
                 android:layout_marginTop="10dp">
 
                 <TextView
-                    android:id="@+id/text"
+                    android:id="@+id/txtPaciente"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -61,20 +62,23 @@
                     android:id="@+id/linear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/text"
+                    android:layout_below="@+id/txtPaciente"
                     android:layout_marginTop="3dp"
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/txtComentario"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:maxLines="1"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit ="marquee_forever"
                         android:scrollHorizontally="true"
                         android:text="Comentarios"
                         android:textColor="@color/colorLightGray"
                         android:textSize="12dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:singleLine="true" />
 
                 </LinearLayout>
 
@@ -87,7 +91,8 @@
 
                     <TableLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:stretchColumns="*">
 
                         <TableRow
                             android:layout_width="match_parent"
@@ -96,7 +101,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="20dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:gravity="center"
                                 android:text="Talla:"
                                 android:textColor="@color/colorLightGray"
@@ -106,7 +111,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:gravity="center"
                                 android:text="Peso:"
                                 android:textColor="@color/colorLightGray"
@@ -116,7 +121,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:gravity="center"
                                 android:text="%SpO2:"
                                 android:textColor="@color/colorLightGray"
@@ -126,7 +131,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:gravity="center"
                                 android:text="Temp:"
                                 android:textColor="@color/colorLightGray"
@@ -136,7 +141,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:gravity="center"
                                 android:text="IMC:"
                                 android:textColor="@color/colorLightGray"
@@ -149,10 +154,10 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/textView5"
+                                android:id="@+id/txtTalla"
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="20dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:background="@drawable/roun_rect_lightgray"
                                 android:gravity="center"
                                 android:text="talla"
@@ -161,10 +166,10 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/textView6"
+                                android:id="@+id/txtPeso"
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:background="@drawable/roun_rect_lightgray"
                                 android:gravity="center"
                                 android:text="Peso"
@@ -173,10 +178,10 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/textView7"
+                                android:id="@+id/txtSaturacion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:background="@drawable/roun_rect_lightgray"
                                 android:gravity="center"
                                 android:text="%SpO2"
@@ -185,10 +190,10 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/textView8"
+                                android:id="@+id/txtTemperatura"
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:background="@drawable/roun_rect_lightgray"
                                 android:gravity="center"
                                 android:text="Temp."
@@ -197,10 +202,10 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/textView9"
+                                android:id="@+id/txtIMC"
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:background="@drawable/roun_rect_lightgray"
                                 android:gravity="center"
                                 android:text="IMC"
@@ -209,13 +214,6 @@
                                 android:textStyle="bold" />
                         </TableRow>
 
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
                     </TableLayout>
                 </LinearLayout>
             </RelativeLayout>

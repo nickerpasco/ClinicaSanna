@@ -9,6 +9,7 @@
         <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/activity_cambiar_contrasenia.xml" value="0.36102564102564105" />
         <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/activity_home.xml" value="0.2630208333333333" />
         <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/activity_inicar_login.xml" value="0.2630208333333333" />
+        <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/activity_lista_funciones_vitales.xml" value="0.33" />
         <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/activity_listado_funciones_vitales.xml" value="0.2630208333333333" />
         <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/activity_listados.xml" value="0.26197916666666665" />
         <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/activity_main.xml" value="0.36102564102564105" />
@@ -23,7 +24,7 @@
         <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/fragment_lista_funcion_vitales.xml" value="0.25" />
         <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/fragment_listado_pacientes.xml" value="0.2630208333333333" />
         <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/fragment_second.xml" value="0.20520833333333333" />
-        <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/view_item_funciones.xml" value="0.33" />
+        <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/layout/view_item_funciones.xml" value="1.1" />
         <entry key="..\:/Proyectos/Android/ClinicaSannaAct/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2630208333333333" />
       </map>
     </option>

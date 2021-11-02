@@ -13,14 +13,15 @@
             android:name=".RegistroPacienteActivity"
             android:exported="true" />
         <activity android:name=".RegistroFuncionesVitalesActivity">
-
         </activity>
         <activity android:name=".CambiarContraseniaActivity" />
         <activity android:name=".RecuperarContraseniaActivity" />
         <activity android:name=".InicarLoginActivity" />
-        <activity android:name=".ui.ListaFuncionesVitalesActivity" />
-        <activity android:name=".ListadosActivity">
+        <activity android:name=".ui.ListaFuncionesVitalesActivity"
+            android:exported="true">
+
         </activity>
+
         <activity
             android:name=".RegistroActivity"
             android:exported="true" />

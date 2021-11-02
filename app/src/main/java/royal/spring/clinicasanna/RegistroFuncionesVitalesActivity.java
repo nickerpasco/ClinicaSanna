@@ -35,7 +35,7 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
         edPeso = findViewById(R.id.edPeso);
         edTalla = findViewById(R.id.edTalla);
         edComentario = findViewById(R.id.edComentario);
-        txtImc = findViewById(R.id.txtImc);
+        txtImc = findViewById(R.id.tiEdIMC);
         btnRegistroFV = findViewById(R.id.BtnRegistroFV);
         btnAtras = findViewById(R.id.btnAtrasFV);
 
@@ -121,6 +121,6 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-        }else {Toast.makeText(this, "Complete todos los datos", Toast.LENGTH_SHORT).show();}
+        }else {Toast.makeText(this, "Complete todos los espacios", Toast.LENGTH_SHORT).show();}
     }
 }

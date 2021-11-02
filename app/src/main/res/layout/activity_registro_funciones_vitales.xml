@@ -113,10 +113,11 @@
                         android:background="@drawable/background_border_round"
                         android:gravity="center_vertical"
                         android:hint="Paciente"
-                        android:inputType="textCapSentences"
+                        android:inputType="textPersonName|textCapSentences"
                         android:maxLength="40"
                         android:paddingHorizontal="@dimen/size_20"
                         android:textSize="@dimen/text10"
+                        android:digits="@string/abc_no_numbers"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/btnBuscaPaciente"
                         app:layout_constraintStart_toStartOf="parent"
@@ -214,7 +215,7 @@
                     android:textColorHint="@color/sanna">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtImc"
+                        android:id="@+id/tiEdIMC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_primary_round"
@@ -234,16 +235,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/size_20"
                     android:background="@drawable/background_border_round"
+                    android:digits="@string/abc_numbers"
                     android:gravity="center_vertical"
                     android:hint="Comentarios"
-                    android:inputType="textMultiLine"
-                    android:maxLength="150"
-                    android:maxLines="3"
-                    android:minLines="3"
+                    android:inputType="text"
+                    android:maxLines="2"
+                    android:maxLength="100"
                     android:paddingHorizontal="@dimen/size_20"
+                    android:scrollHorizontally="true"
                     android:textSize="@dimen/text10" />
-
-
             </LinearLayout>
         </ScrollView>
 
