@@ -6,8 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.GenericRawResults;
-import com.j256.ormlite.stmt.DeleteBuilder;
-import com.j256.ormlite.stmt.UpdateBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
@@ -37,6 +35,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 
             // Create Table with given table name with columnName
             TableUtils.createTable(cs, Usuario.class);
+            TableUtils.createTableIfNotExists(cs, FuncionesVitales.class);
 
 
         } catch (SQLException e) {

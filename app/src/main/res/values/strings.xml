@@ -13,8 +13,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <!-- TAB-->
-    <string name="tab_text_1">Funciones Vitales</string>
-    <string name="tab_text_2">Pacientes</string>
+    <!-- ALFABETOS-->
+    <string name="abc_no_numbers">abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ</string>
+    <string name="abc_numbers">abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ12345678910</string>
+
 
 </resources>

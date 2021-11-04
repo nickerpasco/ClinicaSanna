@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import royal.spring.clinicasanna.clases.Usuario;
-import royal.spring.clinicasanna.ui.MainActivity;
+import royal.spring.clinicasanna.ui.ListaFuncionesVitalesActivity;
 
 public class InicarLoginActivity extends AppCompatActivity {
 
@@ -94,7 +94,7 @@ public class InicarLoginActivity extends AppCompatActivity {
             List<Usuario> lis = (ArrayList<Usuario>) dbHelper.getAll(Usuario.class);
 
             if (Acceder(lis)){
-                startActivity(new Intent(InicarLoginActivity.this, MainActivity.class));
+                startActivity(new Intent(InicarLoginActivity.this, ListaFuncionesVitalesActivity.class));
 
             }else{
                 Toast.makeText(this, "Usuario No encontrado", Toast.LENGTH_SHORT).show();
