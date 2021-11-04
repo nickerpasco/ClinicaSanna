@@ -36,6 +36,8 @@ public class AdaptaFunciones extends RecyclerView.Adapter<AdaptaFunciones.MyHold
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         final FuncionesVitales funcionesV = lista.get(position);
+
+        /*
         holder.txtPaciente.setText((1+position)+". "+ funcionesV.getPaciente());
         holder.txtComentario.setText(funcionesV.getComentario());
         holder.txtPeso.setText(String.valueOf(funcionesV.getPeso()));
@@ -44,6 +46,8 @@ public class AdaptaFunciones extends RecyclerView.Adapter<AdaptaFunciones.MyHold
         holder.txtSaturacion.setText(String.valueOf(funcionesV.getSaturacion()));
         holder.txtIMC.setText(String.valueOf(funcionesV.getIMC()));
         holder.txtComentario.setSelected(true);
+
+         */
     }
 
     @Override

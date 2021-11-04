@@ -1,8 +1,10 @@
 package royal.spring.clinicasanna;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,7 +17,12 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import royal.spring.clinicasanna.clases.FuncionesVitales;
 import royal.spring.clinicasanna.ui.ListaFuncionesVitalesActivity;
@@ -70,6 +77,7 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
         });
 
         btnRegistroFV.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View view) {
 
@@ -99,28 +107,45 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void GuardarFuncionV() {
         if (edPaciente.length() !=0 && edSaturacion.length() != 0 && edTemperatura.length() != 0
                 && edPeso.length() != 0 && edTalla.length() != 0 && txtImc.length() != 0 && edComentario.length() != 0) {
 
             DBHelper dbHelper;
             dbHelper = new DBHelper(this);
+
             try {
+
+
                 FuncionesVitales funcionesV = new FuncionesVitales();
                 funcionesV.setPaciente(edPaciente.getText().toString());
                 funcionesV.setSaturacion(Double.parseDouble(edSaturacion.getText().toString()));
                 funcionesV.setTemperatura(Double.parseDouble(edTemperatura.getText().toString()));
                 funcionesV.setPeso(Double.parseDouble(edPeso.getText().toString()));
                 funcionesV.setTalla(Double.parseDouble(edTalla.getText().toString()));
-                funcionesV.setIMC(Double.parseDouble(txtImc.getText().toString()));
+//                funcionesV.setIMC(Double.parseDouble(txtImc.getText().toString()));
                 funcionesV.setComentario(edComentario.getText().toString());
+                funcionesV.setEstado("ATENDIDO");
+                funcionesV.setDireccion("Direccion CLiente");
+                funcionesV.setFecha(formatearFecha(new java.util.Date()));
                 dbHelper.create(funcionesV);
                 Toast.makeText(this, "Datos Registrados", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(), ListaFuncionesVitalesActivity.class);
-                startActivity(i);
-            } catch (SQLException throwables) {
+               finish();
+            } catch ( SQLException throwables) {
                 throwables.printStackTrace();
             }
+
+
         }else {Toast.makeText(this, "Complete todos los espacios", Toast.LENGTH_SHORT).show();}
     }
+
+
+    public static String formatearFecha(Date date) {
+        SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//dd/MM/yyyy
+
+        String strDate = sdfDate.format(date);
+        return strDate;
+    }
+
 }

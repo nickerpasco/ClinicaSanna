@@ -18,6 +18,7 @@ import java.util.List;
 
 import royal.spring.clinicasanna.clases.Usuario;
 import royal.spring.clinicasanna.ui.ListaFuncionesVitalesActivity;
+import royal.spring.clinicasanna.ui.MainActivity;
 
 public class InicarLoginActivity extends AppCompatActivity {
 
@@ -44,7 +45,10 @@ public class InicarLoginActivity extends AppCompatActivity {
                 button.startAnimation(animFadein);
 
 
+
                 ValidarUsuario();
+
+               // startActivity(new Intent(InicarLoginActivity.this, MainActivity.class));
 
 
 
@@ -94,7 +98,7 @@ public class InicarLoginActivity extends AppCompatActivity {
             List<Usuario> lis = (ArrayList<Usuario>) dbHelper.getAll(Usuario.class);
 
             if (Acceder(lis)){
-                startActivity(new Intent(InicarLoginActivity.this, ListaFuncionesVitalesActivity.class));
+                startActivity(new Intent(InicarLoginActivity.this, MainActivity.class));
 
             }else{
                 Toast.makeText(this, "Usuario No encontrado", Toast.LENGTH_SHORT).show();

@@ -10,48 +10,32 @@ public class FuncionesVitales {
     private int IdFuncionVital;
     @DatabaseField(columnName = "Campo")
     private int Campo;
+    @DatabaseField(columnName = "Saturacion")
+    private double Saturacion;
+    @DatabaseField(columnName = "Temperatura")
+    private double Temperatura;
+    @DatabaseField(columnName = "Peso")
+    private double Peso;
+    @DatabaseField(columnName = "Talla")
+    private double Talla;
+    @DatabaseField(columnName = "Comentario")
+    private String Comentario;
+    @DatabaseField(columnName = "Paciente")
     private String Paciente;
-    private String Direccion;
+    @DatabaseField(columnName = "IMC")
+    private double IMC;
+    @DatabaseField(columnName = "Fecha")
     private String Fecha;
+    @DatabaseField(columnName = "Estado")
     private String Estado;
-    private String Médico;
-
-    public int getIdFuncionVital() {
-        return IdFuncionVital;
-    }
-
+    @DatabaseField(columnName = "Medico")
+    private String Medico;
+    @DatabaseField(columnName = "Direccion")
+    private String Direccion;
 
 
-
-    public void setIdFuncionVital(int idFuncionVital) {
-        IdFuncionVital = idFuncionVital;
-    }
-
-    public int getCampo() {
-        return Campo;
-    }
-
-    public void setCampo(int campo) {
-        Campo = campo;
-    }
-
-
-    public FuncionesVitales(int idFuncionVital, int campo, String paciente, String direccion, String fecha, String estado, String médico) {
-        IdFuncionVital = idFuncionVital;
-        Campo = campo;
-        Paciente = paciente;
-        Direccion = direccion;
-        Fecha = fecha;
-        Estado = estado;
-        Médico = médico;
-    }
-
-    public String getPaciente() {
-        return Paciente;
-    }
-
-    public void setPaciente(String paciente) {
-        Paciente = paciente;
+    public String getFecha() {
+        return Fecha;
     }
 
     public String getDireccion() {
@@ -60,10 +44,6 @@ public class FuncionesVitales {
 
     public void setDireccion(String direccion) {
         Direccion = direccion;
-    }
-
-    public String getFecha() {
-        return Fecha;
     }
 
     public void setFecha(String fecha) {
@@ -78,11 +58,83 @@ public class FuncionesVitales {
         Estado = estado;
     }
 
-    public String getMédico() {
-        return Médico;
+    public String getMedico() {
+        return Medico;
     }
 
-    public void setMédico(String médico) {
-        Médico = médico;
+    public void setMedico(String medico) {
+        Medico = medico;
+    }
+
+    public int getIdFuncionVital() {
+        return IdFuncionVital;
+    }
+
+    public void setIdFuncionVital(int idFuncionVital) {
+        IdFuncionVital = idFuncionVital;
+    }
+
+    public int getCampo() {
+        return Campo;
+    }
+
+    public String getPaciente() {
+        return Paciente;
+    }
+
+    public void setPaciente(String paciente) {
+        Paciente = paciente;
+    }
+
+    public void setCampo(int campo) {
+        Campo = campo;
+    }
+
+    public double getSaturacion() {
+        return Saturacion;
+    }
+
+    public void setSaturacion(double saturacion) {
+        Saturacion = saturacion;
+    }
+
+    public double getTemperatura() {
+        return Temperatura;
+    }
+
+    public void setTemperatura(double temperatura) {
+        Temperatura = temperatura;
+    }
+
+    public double getPeso() {
+        return Peso;
+    }
+
+    public void setPeso(double peso) {
+        Peso = peso;
+    }
+
+    public double getTalla() {
+        return Talla;
+    }
+
+    public void setTalla(double talla) {
+        Talla = talla;
+    }
+
+    public String getComentario() {
+        return Comentario;
+    }
+
+    public void setComentario(String comentario) {
+        Comentario = comentario;
+    }
+
+    public double getIMC() {
+        return IMC;
+    }
+
+    public void setIMC(double IMC) {
+        this.IMC = IMC;
     }
 }

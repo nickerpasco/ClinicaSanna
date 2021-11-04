@@ -32,11 +32,11 @@
 
                 <ImageView
                     android:id="@+id/back"
-                    android:layout_width="0dp"
-                    android:layout_height="24dp"
+                    android:layout_width="31dp"
+                    android:layout_height="45dp"
                     android:layout_margin="16dp"
                     android:layout_weight="0.2"
-                    android:src="@drawable/ic_atras" />
+                    android:src="@drawable/ic_baseline_exit_to_app_24" />
 
 
                 <ImageView
@@ -57,11 +57,12 @@
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="24dp"
+                    android:layout_height="41dp"
+                    android:id="@+id/BtnExcel"
                     android:layout_margin="16dp"
                     android:layout_weight="0.2"
                     android:gravity="right"
-                    android:src="@drawable/dots" />
+                    android:src="@drawable/ic_baseline_system_update_24" />
 
 
             </LinearLayout>
@@ -155,10 +156,12 @@
                 android:id="@+id/BtnRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
+                android:paddingHorizontal="15dp"
                 android:layout_marginLeft="8dp"
                 android:background="@drawable/roun_rect_gray"
-                android:text="R.F.V"
+                android:text="Registrar"
+                android:drawableStart="@drawable/ic_round_add_24"
                 android:textColor="@color/colorBackroundWhite"
                 android:textSize="14dp"
                 android:textStyle="bold" />

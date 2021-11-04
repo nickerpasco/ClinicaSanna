@@ -50,12 +50,15 @@ public class FuncionesAdapter extends RecyclerView.Adapter<FuncionesAdapter.View
         final FuncionesVitales item = listaVentasdeldia.get(position);
         // holder.TxtNombrePedido.setText(item.getIdVenta());
 
+
         holder.textView.setText(item.getPaciente());
         holder.TxtFecha.setText(item.getFecha());
         holder.txtdireccionPedido.setText(item.getDireccion());
         holder.txtEstadoPedido.setText(item.getEstado());
-        holder.NroDco.setText(item.getMédico());
+        holder.NroDco.setText(item.getMedico());
         holder.TxtMontoTotal.setText("000000000"+item.getIdFuncionVital());
+
+
 
 
 

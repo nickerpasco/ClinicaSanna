@@ -41,8 +41,9 @@ public class ListaFuncionesVitalesActivity extends AppCompatActivity {
         });
 
         DBHelper dbHelper = new DBHelper(this);
+        /*
         try {
-            List<FuncionesVitales> lista = dbHelper.getAll(FuncionesVitales.class);
+            List<FuncionesVitales> lista = null;//dbHelper.getAll(FuncionesVitales.class);
             adaptaFunciones = new AdaptaFunciones(lista,this);
             rvListaFunciones.setLayoutManager(new LinearLayoutManager(this));
             rvListaFunciones.setAdapter(adaptaFunciones);
@@ -50,6 +51,8 @@ public class ListaFuncionesVitalesActivity extends AppCompatActivity {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+         */
 
     }
 }

@@ -36,6 +36,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
             // Create Table with given table name with columnName
             TableUtils.createTable(cs, Usuario.class);
             TableUtils.createTableIfNotExists(cs, FuncionesVitales.class);
+            //TableUtils.createTableIfNotExists(cs, FuncionesVitales.class);
 
 
         } catch (SQLException e) {
