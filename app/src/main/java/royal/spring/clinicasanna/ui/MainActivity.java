@@ -74,10 +74,6 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
 
 
-
-
-
-
         BtnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
                     //your code
                     createExcelSheet();
                 }
-
-
             }
         });
     }
@@ -130,8 +124,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-
-
     void createExcelSheet() {
         //File futureStudioIconFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
 
@@ -146,14 +138,8 @@ public class MainActivity extends AppCompatActivity {
             createFirstSheet();
 //            createSecondSheet();
             //closing cursor
-
-
-
-
-
             workbook.write();
             workbook.close();
-
 
             Intent intent = new Intent(Intent.ACTION_VIEW);
             File file = new File(Environment

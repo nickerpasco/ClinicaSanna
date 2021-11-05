@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,18 +22,14 @@ import royal.spring.clinicasanna.clases.FuncionesVitales;
 
 public class FuncionesAdapter extends RecyclerView.Adapter<FuncionesAdapter.ViewHolderVentaDelDia> {
 
-
     ArrayList<FuncionesVitales> listaVentasdeldia;
     Context mContext;
-
-
 
     public FuncionesAdapter(ArrayList<FuncionesVitales> listaVentasdeldia, Context mContext) {
 
         this.listaVentasdeldia = listaVentasdeldia;
         this.mContext = mContext;
     }
-
 
     @NonNull
     @Override
@@ -57,13 +54,16 @@ public class FuncionesAdapter extends RecyclerView.Adapter<FuncionesAdapter.View
         holder.txtEstadoPedido.setText(item.getEstado());
         holder.NroDco.setText(item.getMedico());
         holder.TxtMontoTotal.setText("000000000"+item.getIdFuncionVital());
-
-
-
-
+        holder.linearFuncionesV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext,RegistroFuncionesVitalesActivity.class);
+                intent.putExtra("ID_fv",item.getIdFuncionVital()+"");
+                mContext.startActivity(intent);
+            }
+        });
 
     }
-
 
     @Override
     public int getItemCount() {
@@ -73,12 +73,13 @@ public class FuncionesAdapter extends RecyclerView.Adapter<FuncionesAdapter.View
     public class ViewHolderVentaDelDia extends RecyclerView.ViewHolder {
         TextView txtNombrellegada, txtdireccionPedido, NroDco, txtEstadoPedido, TxtMontoTotal, TxtFecha;
         TextView tiempo, textView;
+        LinearLayout linearFuncionesV;
 
         public ViewHolderVentaDelDia(View itemView) {
             super(itemView);
             // TxtNombrePedido = itemView.findViewById(R.id.shopping_cart_item_name_text_view);
 
-
+            linearFuncionesV = itemView.findViewById(R.id.LinearFuncionesV);
             txtdireccionPedido = itemView.findViewById(R.id.txtdireccionPedido);
             txtEstadoPedido = itemView.findViewById(R.id.txtEstadoPedido);
             TxtFecha = itemView.findViewById(R.id.TxtFecha);

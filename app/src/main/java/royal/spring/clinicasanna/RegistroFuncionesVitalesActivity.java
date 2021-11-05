@@ -46,6 +46,7 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
         btnRegistroFV = findViewById(R.id.BtnRegistroFV);
         btnAtras = findViewById(R.id.btnAtrasFV);
 
+        VerDatos();
         edPeso.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -107,6 +108,29 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
         }
     }
 
+    private void VerDatos(){
+        DBHelper dbHelper;
+        dbHelper = new DBHelper(this);
+
+        FuncionesVitales fV = new FuncionesVitales();
+        try {
+            Bundle id = getIntent().getExtras();
+            if(id != null){
+                fV = dbHelper.getById(FuncionesVitales.class,id.getString("ID_fv"));
+                edPaciente.setText(fV.getPaciente());
+                edSaturacion.setText(String.valueOf(fV.getSaturacion()));
+                edTemperatura.setText(String.valueOf(fV.getTemperatura()));
+                edTalla.setText(String.valueOf(fV.getTalla()));
+                edPeso.setText(String.valueOf(fV.getPeso()));
+                edComentario.setText(fV.getComentario());
+                IMC();
+                //Toast.makeText(this, fV.getPaciente(), Toast.LENGTH_SHORT).show();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void GuardarFuncionV() {
         if (edPaciente.length() !=0 && edSaturacion.length() != 0 && edTemperatura.length() != 0
@@ -116,7 +140,6 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
             dbHelper = new DBHelper(this);
 
             try {
-
 
                 FuncionesVitales funcionesV = new FuncionesVitales();
                 funcionesV.setPaciente(edPaciente.getText().toString());
@@ -136,10 +159,8 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
                 throwables.printStackTrace();
             }
 
-
         }else {Toast.makeText(this, "Complete todos los espacios", Toast.LENGTH_SHORT).show();}
     }
-
 
     public static String formatearFecha(Date date) {
         SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//dd/MM/yyyy
