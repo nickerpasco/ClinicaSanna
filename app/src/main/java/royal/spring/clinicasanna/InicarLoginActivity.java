@@ -2,7 +2,9 @@ package royal.spring.clinicasanna;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -45,6 +47,16 @@ public class InicarLoginActivity extends AppCompatActivity {
                 button.startAnimation(animFadein);
 
 
+                String usuario = editText.getText().toString();
+                String pass = editText2.getText().toString();
+                if(usuario.equals("")){
+                    Toast.makeText(InicarLoginActivity.this, "Ingrese Usuario", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(pass.equals("")){
+                    Toast.makeText(InicarLoginActivity.this, "Ingrese Contraseña", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 ValidarUsuario();
 
@@ -81,10 +93,17 @@ public class InicarLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_tv);
                 textView52.startAnimation(animFadein);
-                startActivity(new Intent(InicarLoginActivity.this,CambiarContraseniaActivity.class));
+                //startActivity(new Intent(InicarLoginActivity.this,CambiarContraseniaActivity.class));
+                Toast.makeText(InicarLoginActivity.this, "En Mantenimiento...", Toast.LENGTH_SHORT).show();
             }
         });
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //finish();
     }
 
     private void ValidarUsuario() {
@@ -98,6 +117,8 @@ public class InicarLoginActivity extends AppCompatActivity {
             List<Usuario> lis = (ArrayList<Usuario>) dbHelper.getAll(Usuario.class);
 
             if (Acceder(lis)){
+
+
                 startActivity(new Intent(InicarLoginActivity.this, MainActivity.class));
 
             }else{
@@ -120,7 +141,14 @@ public class InicarLoginActivity extends AppCompatActivity {
 
         for (Usuario item : lis){
 
-            if(item.getUsuario().equals(usuario) && item.getUsuario().equals(pass)){
+            if(item.getUsuario().equals(usuario) && item.getContrasenia().equals(pass)){
+
+
+                SharedPreferences preferences = getSharedPreferences("PrefeM", Context.MODE_PRIVATE);
+                SharedPreferences.Editor prefsEditor = preferences.edit();
+                prefsEditor.putString("Usuario", item.getUsuario());
+                prefsEditor.commit();
+
 
                 return true;
             }

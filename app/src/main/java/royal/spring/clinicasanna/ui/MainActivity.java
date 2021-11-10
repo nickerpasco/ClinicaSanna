@@ -1,14 +1,19 @@
 package royal.spring.clinicasanna.ui;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 //import android.support.v4.widget.SwipeRefreshLayout;
 import android.os.Environment;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,6 +36,7 @@ import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import royal.spring.clinicasanna.DBHelper;
 import royal.spring.clinicasanna.FuncionesAdapter;
+import royal.spring.clinicasanna.InicarLoginActivity;
 import royal.spring.clinicasanna.R;
 import royal.spring.clinicasanna.RegistroFuncionesVitalesActivity;
 import royal.spring.clinicasanna.VerticalSpaceItemDecoration;
@@ -46,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView RecyclerPedidos;
     FuncionesAdapter adapter;
     //private SwipeRefreshLayout swipeContainer;
-    ImageView pin_icon;
+    ImageView pin_icon,back;
     TextView address_selected_textview;
     Button btnMapa;
     DBHelper dbHelper;
@@ -62,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         BtnRegistro = (TextView) findViewById(R.id.BtnRegistro);
         BtnExcel = (ImageView) findViewById(R.id.BtnExcel);
+        back = (ImageView) findViewById(R.id.back);
 
         listaPedidos = new ArrayList<>();
         RecyclerPedidos = (RecyclerView) findViewById(R.id.RecyclerPedidosCab);
@@ -77,11 +84,42 @@ public class MainActivity extends AppCompatActivity {
         BtnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Animation animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_tv);
+                BtnRegistro.startAnimation(animFadein);
                 startActivity(new Intent(MainActivity.this, RegistroFuncionesVitalesActivity.class));
 
             }
         });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_tv);
+                back.startAnimation(animFadein);
+
+
+                SharedPreferences preferences = getSharedPreferences("PrefeM", Context.MODE_PRIVATE);
+                SharedPreferences.Editor prefsEditor = preferences.edit();
+                prefsEditor.putString("Usuario", "");
+                prefsEditor.clear();
+                prefsEditor.commit();
+
+
+
+
+                Intent startMain = new Intent(Intent.ACTION_MAIN);
+                startMain.addCategory(Intent.CATEGORY_HOME);
+                startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(startMain);
+                Intent intent = new Intent(getApplicationContext(), InicarLoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+
+            }
+        });
+
+
+
 
         BtnExcel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +160,12 @@ public class MainActivity extends AppCompatActivity {
         adapter = new FuncionesAdapter(  listaPedidos,this );
         RecyclerPedidos.setAdapter( adapter );
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 
     void createExcelSheet() {
@@ -181,5 +225,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            finish();
+            return false; //I have tried here true also
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 }

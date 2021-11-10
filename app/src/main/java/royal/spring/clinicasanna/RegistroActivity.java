@@ -22,7 +22,7 @@ import royal.spring.clinicasanna.clases.Usuario;
 
 public class RegistroActivity extends AppCompatActivity {
 
-    ImageView BtnGuardar;
+    ImageView BtnGuardar,atrasPrioridad;
     ProgressDialog mPDialog;
     EditText TxtTxtApellidos,TxtUsuario,TxtContrasenia,TxtCelularPNuevo,TxtCorreo;
     @Override
@@ -31,11 +31,19 @@ public class RegistroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
 
         BtnGuardar = (ImageView)findViewById(R.id.BtnGuardar);
+        atrasPrioridad = (ImageView)findViewById(R.id.atrasPrioridad);
         TxtTxtApellidos = (EditText)findViewById(R.id.TxtNombresApellidos);
         TxtUsuario = (EditText)findViewById(R.id.TxtUsuario);
         TxtContrasenia = (EditText)findViewById(R.id.TxtContrasenia);
         TxtCelularPNuevo = (EditText)findViewById(R.id.TxtCelularPNuevo);
         TxtCorreo = (EditText)findViewById(R.id.TxtCorreo);
+
+        atrasPrioridad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         BtnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +64,28 @@ public class RegistroActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this); // INSTANCIAR PAPUS
         try {
             Usuario usuario = new Usuario();
+
+            if(TxtTxtApellidos.getText().equals("")){
+                Toast.makeText(this, "Ingrese Apellido", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(TxtUsuario.getText().equals("")){
+                Toast.makeText(this, "Ingrese Usuario", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(TxtContrasenia.getText().equals("")){
+                Toast.makeText(this, "Ingrese Contraseña", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(TxtCelularPNuevo.getText().equals("")){
+                Toast.makeText(this, "Ingrese Celular", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(TxtCorreo.getText().equals("")){
+                Toast.makeText(this, "Ingrese Correo", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             usuario.setApellidosNombres(TxtTxtApellidos.getText().toString());
             usuario.setCelular(TxtCelularPNuevo.getText().toString());
             usuario.setContrasenia(TxtContrasenia.getText().toString());
@@ -63,7 +93,7 @@ public class RegistroActivity extends AppCompatActivity {
             usuario.setUsuario(TxtUsuario.getText().toString());
             dbHelper.create(usuario);
             List<Usuario> lis = (ArrayList<Usuario>) dbHelper.getAll(Usuario.class);
-            Toast.makeText(this, "" + lis.get(0).getApellidosNombres(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Usuario : " + lis.get(0).getUsuario()  +" Registrado ", Toast.LENGTH_SHORT).show();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

@@ -106,8 +106,18 @@
                         <ImageView
                             android:layout_width="@dimen/size_150"
                             android:layout_height="@dimen/size_150"
-                            android:src="@drawable/sanna"
-                             />
+                            android:src="@drawable/ic_baseline_person_add_alt_1_24"
+                            app:tint="@color/black" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Registrar Usuario"
+                            android:textColor="#209a4b"
+                            android:textSize="16sp"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
 
                         <LinearLayout
                             android:layout_width="fill_parent"
