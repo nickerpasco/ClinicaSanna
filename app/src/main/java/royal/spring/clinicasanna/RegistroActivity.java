@@ -94,6 +94,7 @@ public class RegistroActivity extends AppCompatActivity {
             dbHelper.create(usuario);
             List<Usuario> lis = (ArrayList<Usuario>) dbHelper.getAll(Usuario.class);
             Toast.makeText(this, "Usuario : " + lis.get(0).getUsuario()  +" Registrado ", Toast.LENGTH_SHORT).show();
+            finish();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
