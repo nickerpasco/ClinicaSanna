@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
+import java.util.Formatter;
 
 import royal.spring.clinicasanna.clases.FuncionesVitales;
 
@@ -53,7 +54,7 @@ public class FuncionesAdapter extends RecyclerView.Adapter<FuncionesAdapter.View
         holder.txtdireccionPedido.setText(item.getDireccion());
         holder.txtEstadoPedido.setText(item.getEstado());
         holder.NroDco.setText(item.getMedico());
-        holder.TxtMontoTotal.setText("000000000"+item.getIdFuncionVital());
+        holder.TxtMontoTotal.setText(String.format("%s", new Formatter().format("%09d", item.getIdFuncionVital())));
         holder.linearFuncionesV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
