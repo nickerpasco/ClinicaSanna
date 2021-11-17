@@ -93,8 +93,8 @@ public class InicarLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_tv);
                 textView52.startAnimation(animFadein);
-                //startActivity(new Intent(InicarLoginActivity.this,CambiarContraseniaActivity.class));
-                Toast.makeText(InicarLoginActivity.this, "En Mantenimiento...", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(InicarLoginActivity.this,CambiarContraseniaActivity.class));
+                //Toast.makeText(InicarLoginActivity.this, "En Mantenimiento...", Toast.LENGTH_SHORT).show();
             }
         });
 
