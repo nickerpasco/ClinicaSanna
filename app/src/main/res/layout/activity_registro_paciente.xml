@@ -142,8 +142,8 @@
                                 android:background="@drawable/background_border_round"
                                 android:gravity="center_vertical"
                                 android:hint="Nro. de Documento"
-                                android:inputType="textCapSentences"
-                                android:maxLength="16"
+                                android:inputType="number"
+                                android:maxLength="12"
                                 android:paddingLeft="@dimen/size_20"
                                 android:textSize="@dimen/text10" />
 
@@ -156,8 +156,9 @@
                                 android:background="@drawable/background_border_round"
                                 android:gravity="center_vertical"
                                 android:hint="Nombres y Apellidos"
+                                android:digits="@string/abc_numbers"
                                 android:inputType="textCapSentences"
-                                android:maxLength="16"
+                                android:maxLength="50"
                                 android:paddingLeft="@dimen/size_20"
                                 android:textSize="@dimen/text10" />
 
@@ -178,8 +179,8 @@
                                 android:background="@drawable/background_border_round"
                                 android:gravity="center_vertical"
                                 android:hint="Edad"
-                                android:inputType="textCapSentences"
-                                android:maxLength="16"
+                                android:inputType="number"
+                                android:maxLength="3"
                                 android:paddingLeft="@dimen/size_20"
                                 android:textSize="@dimen/text10" />
 
@@ -216,8 +217,9 @@
                                 android:background="@drawable/background_border_round"
                                 android:gravity="center_vertical"
                                 android:hint="Dirección"
+                                android:digits="@string/abc_numbers"
                                 android:inputType="textCapSentences"
-                                android:maxLength="16"
+                                android:maxLength="60"
                                 android:paddingLeft="@dimen/size_20"
                                 android:textSize="@dimen/text10" />
 
@@ -231,6 +233,8 @@
                                 android:hint="Email"
                                 android:inputType="textEmailAddress"
                                 android:maxLength="100"
+
+                                android:digits="@string/abc_numbersarroba"
                                 android:paddingLeft="@dimen/size_20"
                                 android:textSize="@dimen/text10" />
 
@@ -247,28 +251,7 @@
                                 android:paddingLeft="@dimen/size_20"
                                 android:textSize="@dimen/text10" />
 
-                            <TextView
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/size_20"
-                                android:text="Seguro"
-                                android:textSize="@dimen/text10" />
 
-                            <LinearLayout
-                                android:layout_width="fill_parent"
-                                android:layout_height="@dimen/size_40"
-                                android:layout_marginTop="@dimen/size_5"
-                                android:background="@drawable/background_border_round"
-                                android:padding="@dimen/size_2">
-
-                                <com.jaredrummler.materialspinner.MaterialSpinner
-
-                                    android:id="@+id/SpPacSeguro"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="40dp"
-                                    android:hint="Seguro"
-                                    android:textSize="@dimen/text10" />
-                            </LinearLayout>
 
                         </LinearLayout>
                     </LinearLayout>

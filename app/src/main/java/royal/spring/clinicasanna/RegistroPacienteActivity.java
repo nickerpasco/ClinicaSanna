@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -24,7 +27,7 @@ public class RegistroPacienteActivity extends AppCompatActivity {
 
     ImageView btnGuardar,btnAtras;
     EditText txtNombre,txtDoc,txtCorreo,txtCelular,txtEdad, txtDireccion, txtSexo,txtSeguro;
-
+    MaterialSpinner SpPacSexo,SpPacSeguro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +41,10 @@ public class RegistroPacienteActivity extends AppCompatActivity {
         txtCelular = findViewById(R.id.txtPacCel);
         txtEdad = findViewById(R.id.txtPacEdad);
         txtDireccion = findViewById(R.id.txtPacDir);
-        txtSexo = findViewById(R.id.SpPacSexo);
-        txtSeguro = findViewById(R.id.SpPacSeguro);
+        SpPacSexo = findViewById(R.id.SpPacSexo);
+
+
+        LoadAños();
 
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +65,18 @@ public class RegistroPacienteActivity extends AppCompatActivity {
         });
     }
 
+    private void LoadAños() {
+
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("Masculino");
+        arrayList.add("Femenino");
+        arrayList.add("Otros");
+
+        ArrayAdapter<String> adapterSpTipoDocPNuevo = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayList);
+        adapterSpTipoDocPNuevo.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        SpPacSexo.setItems(arrayList);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void GuardarPaciente() {
         if (txtNombre.length() !=0 && txtDoc.length() != 0 && txtCorreo.length() != 0
@@ -76,7 +93,6 @@ public class RegistroPacienteActivity extends AppCompatActivity {
                 paciente.setCorreo(txtCorreo.getText().toString());
                 paciente.setCorreo(txtCelular.getText().toString());
                 paciente.setEdad(Integer.parseInt(txtEdad.getText().toString()));
-//                funcionesV.setIMC(Double.parseDouble(txtImc.getText().toString()));
                 paciente.setDireccion(txtDireccion.getText().toString());
                 dbHelper.create(paciente);
                 Toast.makeText(this, "Datos Registrados", Toast.LENGTH_SHORT).show();

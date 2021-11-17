@@ -115,6 +115,7 @@
                         android:hint="Paciente"
                         android:inputType="textPersonName|textCapSentences"
                         android:maxLength="40"
+                        android:enabled="false"
                         android:paddingHorizontal="@dimen/size_20"
                         android:textSize="@dimen/text10"
                         android:digits="@string/abc_no_numbers"

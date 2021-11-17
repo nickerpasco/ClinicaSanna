@@ -136,6 +136,7 @@
                                 android:layout_marginTop="@dimen/size_20"
                                 android:background="@drawable/background_border_round"
                                 android:gravity="center_vertical"
+                                android:digits="@string/abc_numbers"
                                 android:hint="Usuario"
                                 android:inputType="textCapSentences"
                                 android:maxLength="16"

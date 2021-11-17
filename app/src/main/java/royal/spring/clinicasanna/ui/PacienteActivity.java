@@ -72,7 +72,7 @@ public class PacienteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pacientes);
 
         BtnRegistro = (TextView) findViewById(R.id.BtnRegistro);
-        BtnExcel = (ImageView) findViewById(R.id.BtnExcel);
+
         back = (ImageView) findViewById(R.id.back);
 
         listapaciente = new ArrayList<>();
@@ -103,92 +103,15 @@ public class PacienteActivity extends AppCompatActivity {
                 back.startAnimation(animFadein);
 
 
-                SharedPreferences preferences = getSharedPreferences("PrefeM", Context.MODE_PRIVATE);
-                SharedPreferences.Editor prefsEditor = preferences.edit();
-                prefsEditor.putString("Usuario", "");
-                prefsEditor.clear();
-                prefsEditor.commit();
-
-                Intent startMain = new Intent(Intent.ACTION_MAIN);
-                startMain.addCategory(Intent.CATEGORY_HOME);
-                startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(startMain);
-                Intent intent = new Intent(getApplicationContext(), InicarLoginActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                finish();
 
             }
         });
 
 
-        BtnExcel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-                        checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                } else {
-                    //your code
-                    //createExcelSheet();
-                    try {
-                        crearCvs();
-                    } catch (SQLException throwables) {
-                        throwables.printStackTrace();
-                    }
-                }
-            }
-        });
     }
 
-    private void crearCvs() throws SQLException {
-
-        StringBuilder csvContenido = new StringBuilder();
-        List<Paciente> listaPac = (ArrayList<Paciente>) dbHelper.getAll(Paciente.class);
-        csvContenido.append("ID,Paciente,Sexo,Fecha de Nacimiento,Documento de Identidad,Dirección,Seguro,Correo,Celular\n");
-        for (Paciente pac : listaPac) {
-            csvContenido.append(pac.getIdPaciente()).append(",").append(pac.getNombres()).append(",").append(pac.getSexo()).append(",").append(pac.getEdad()).append(",")
-                    .append(pac.getDocumento()).append(",").append(pac.getDireccion()).append(",").append(pac.getSeguro()).append(",").append(pac.getCorreo()).append(",")
-                    .append(pac.getCelular()).append(",").append("\n");
-        }
-        String csv = csvContenido.toString();
-
-        Log.w("ENVIO", csv);
-        File file = null;
-        File dir = new File(getFilesDir(), "csv");
-        dir.mkdirs();
-        file = new File(dir, "ClinicaSanna_" + fecha() + ".csv");
-        FileOutputStream out = null;
-        Uri u1 = FileProvider.getUriForFile(this, "royal.spring.clinicasanna.fileprovider", file);
-
-        try {
-            out = new FileOutputStream(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            out.write(csv.getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Intent sendIntent = new Intent(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "BD Clinica Sanna");
-        sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        sendIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, u1);
-        sendIntent.setType("text/plain");
-        try {
-            startActivity(Intent.createChooser(sendIntent, "Enviar CSV a:"));
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, "No se pudo completar el proceso de envío.", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     @Override
     protected void onStart() {
@@ -208,7 +131,7 @@ public class PacienteActivity extends AppCompatActivity {
         listapaciente = (ArrayList<Paciente>) lis;
 
 
-        adapter = new PacienteAdapter(listapaciente, this);
+        adapter = new PacienteAdapter(listapaciente, this,this);
         RecyclerPedidos.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

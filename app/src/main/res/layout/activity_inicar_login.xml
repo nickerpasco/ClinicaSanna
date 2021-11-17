@@ -110,6 +110,7 @@
         android:layout_marginEnd="50dp"
         android:background="@drawable/bg_input"
         android:hint="Usuario"
+        android:digits="@string/abc_numbers"
         android:inputType="text"
         android:paddingLeft="16dp"
         android:textColor="#209a4b"

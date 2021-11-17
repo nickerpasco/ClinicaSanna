@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="royal.spring.clinicasanna">
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -27,26 +27,23 @@
         android:icon="@drawable/logo_commerce"
         android:label="Clínica SANNA"
         android:requestLegacyExternalStorage="true"
-
         android:roundIcon="@drawable/logo_commerce"
         android:supportsRtl="true"
         android:theme="@style/Theme.ClinicaSanna">
+        <activity android:name=".ui.ListadoPcientes"></activity>
         <activity
             android:name=".RegistroPacienteActivity"
             android:exported="true" />
-        <activity android:name=".RegistroFuncionesVitalesActivity">
-        </activity>
+        <activity android:name=".RegistroFuncionesVitalesActivity"></activity>
         <activity android:name=".CambiarContraseniaActivity" />
         <activity android:name=".RecuperarContraseniaActivity" />
         <activity android:name=".InicarLoginActivity" />
-        <activity android:name=".ui.MainActivity" android:exported="true">
-
-        </activity>
-        <activity android:name=".ui.ListaFuncionesVitalesActivity"
-            android:exported="true">
-
-        </activity>
-
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".ui.ListaFuncionesVitalesActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".RegistroActivity"
             android:exported="true" />
@@ -55,6 +52,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -66,7 +64,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
     </application>
 

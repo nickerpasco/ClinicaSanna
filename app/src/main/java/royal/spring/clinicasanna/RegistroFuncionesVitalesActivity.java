@@ -3,7 +3,9 @@ package royal.spring.clinicasanna;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.gson.Gson;
 
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -27,7 +30,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 import royal.spring.clinicasanna.clases.FuncionesVitales;
+import royal.spring.clinicasanna.clases.Paciente;
 import royal.spring.clinicasanna.ui.ListaFuncionesVitalesActivity;
+import royal.spring.clinicasanna.ui.ListadoPcientes;
 import royal.spring.clinicasanna.ui.PacienteActivity;
 
 public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
@@ -86,6 +91,10 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                if(edPaciente.length()==0){
+                    Toast.makeText(RegistroFuncionesVitalesActivity.this, "Tiene que seleccionar un paciente", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 GuardarFuncionV();
 
             }
@@ -102,7 +111,7 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_tv);
                 btnBuscaPaciente.startAnimation(animFadein);
-                startActivity(new Intent(RegistroFuncionesVitalesActivity.this, PacienteActivity.class));
+                startActivity(new Intent(RegistroFuncionesVitalesActivity.this, ListadoPcientes.class));
             }
         });
 
@@ -144,6 +153,8 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
         }
     }
 
+
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void GuardarFuncionV() {
         if (edPaciente.length() !=0 && edSaturacion.length() != 0 && edTemperatura.length() != 0
@@ -182,4 +193,19 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
         return strDate;
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Gson gson = new Gson();
+        SharedPreferences preferences = getSharedPreferences( "PrefeM", Context.MODE_PRIVATE );
+        String json = preferences.getString("ModelConfiguracion", "");
+        Paciente ob = gson.fromJson(json, Paciente.class);
+
+        if(ob==null){
+            return;
+        }
+        edPaciente.setText(ob.getNombres());
+    }
 }

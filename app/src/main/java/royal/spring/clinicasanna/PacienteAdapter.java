@@ -1,7 +1,9 @@
 package royal.spring.clinicasanna;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Formatter;
+import java.util.List;
 
 import royal.spring.clinicasanna.clases.Paciente;
 
@@ -22,11 +27,13 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.ViewHo
 
     ArrayList<Paciente> listaVentasdeldia;
     Context mContext;
+    Activity activity;
 
-    public PacienteAdapter(ArrayList<Paciente> listaVentasdeldia, Context mContext) {
+    public PacienteAdapter(ArrayList<Paciente> listaVentasdeldia, Context mContext,Activity activity) {
 
         this.listaVentasdeldia = listaVentasdeldia;
         this.mContext = mContext;
+        this.activity = activity;
     }
 
     @NonNull
@@ -47,7 +54,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.ViewHo
 
 
         holder.textView.setText(item.getNombres());
-        holder.TxtFecha.setText(item.getEdad());
+        holder.TxtFecha.setText(""+item.getEdad());
         holder.txtdireccionPedido.setText(item.getDireccion());
         holder.txtEstadoPedido.setText(item.getSeguro());
         holder.NroDco.setText(item.getDocumento());
@@ -55,13 +62,34 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.ViewHo
         holder.linearPacientes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                /*
                 Intent intent = new Intent(mContext,RegistroPacienteActivity.class);
                 intent.putExtra("ID_pac",item.getIdPaciente()+"");
                 mContext.startActivity(intent);
+
+                 */
+
+
+                SharedPreferences preferences = mContext.getSharedPreferences("PrefeM", Context.MODE_PRIVATE);
+                SharedPreferences.Editor prefsEditor = preferences.edit();
+                Gson gson = new Gson();
+                String json = gson.toJson(item);
+                prefsEditor.putString("ModelConfiguracion", json);
+                prefsEditor.commit();
+
+
+
+                activity.finish();
+
+
+
             }
         });
 
     }
+
+
 
     @Override
     public int getItemCount() {
