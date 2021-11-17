@@ -163,7 +163,7 @@
 
                                 <com.jaredrummler.materialspinner.MaterialSpinner
 
-                                    android:id="@+id/SpSexoPNuevo"
+                                    android:id="@+id/SpPacSexo"
                                     android:layout_width="fill_parent"
                                     android:layout_height="40dp"
                                     android:hint="Sexo"
@@ -200,7 +200,7 @@
                                 android:textSize="@dimen/text10" />
 
                             <EditText
-                                android:id="@+id/TxtCelularPNuevo"
+                                android:id="@+id/txtPacCel"
                                 android:layout_width="fill_parent"
                                 android:layout_height="@dimen/size_40"
                                 android:layout_marginTop="@dimen/size_20"

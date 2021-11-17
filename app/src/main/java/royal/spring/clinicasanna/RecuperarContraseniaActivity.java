@@ -5,14 +5,9 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.app.PendingIntent;
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -22,10 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import royal.spring.clinicasanna.clases.Usuario;
-import royal.spring.clinicasanna.ui.MainActivity;
 
 public class RecuperarContraseniaActivity extends AppCompatActivity {
-
 
     EditText editText,editText2;
     ImageView BtnAbrirModal,atrasPrioridad;
@@ -35,7 +28,7 @@ public class RecuperarContraseniaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recuperar_contrasenia);
-        BtnAbrirModal = (ImageView) findViewById(R.id.BtnAbrirModal);
+        BtnAbrirModal = (ImageView) findViewById(R.id.BtnPacGuardar);
         atrasPrioridad = (ImageView) findViewById(R.id.atrasPrioridad);
         editText = findViewById(R.id.editText);
         editText2 = findViewById(R.id.editText2);

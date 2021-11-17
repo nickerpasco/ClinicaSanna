@@ -35,28 +35,27 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-/*import jxl.Workbook;
-import jxl.WorkbookSettings;
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;*/
+//import jxl.write.WritableWorkbook;
 import royal.spring.clinicasanna.DBHelper;
 import royal.spring.clinicasanna.FuncionesAdapter;
 import royal.spring.clinicasanna.InicarLoginActivity;
+import royal.spring.clinicasanna.PacienteAdapter;
 import royal.spring.clinicasanna.R;
 import royal.spring.clinicasanna.RegistroFuncionesVitalesActivity;
+import royal.spring.clinicasanna.RegistroPacienteActivity;
 import royal.spring.clinicasanna.VerticalSpaceItemDecoration;
 import royal.spring.clinicasanna.clases.FuncionesVitales;
+import royal.spring.clinicasanna.clases.Paciente;
 
 //import android.support.v4.widget.SwipeRefreshLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class PacienteActivity extends AppCompatActivity {
 
     TextView BtnRegistro;
 
-    ArrayList<FuncionesVitales> listaPedidos;
+    ArrayList<Paciente> listapaciente;
     RecyclerView RecyclerPedidos;
-    FuncionesAdapter adapter;
+    PacienteAdapter adapter;
     //private SwipeRefreshLayout swipeContainer;
     ImageView pin_icon, back;
     TextView address_selected_textview;
@@ -64,19 +63,19 @@ public class MainActivity extends AppCompatActivity {
     DBHelper dbHelper;
 
     TextView Daonloaad;
-    /*WritableWorkbook workbook;*/
+    //WritableWorkbook workbook;
     ImageView BtnExcel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_pacientes);
 
         BtnRegistro = (TextView) findViewById(R.id.BtnRegistro);
         BtnExcel = (ImageView) findViewById(R.id.BtnExcel);
         back = (ImageView) findViewById(R.id.back);
 
-        listaPedidos = new ArrayList<>();
+        listapaciente = new ArrayList<>();
         RecyclerPedidos = (RecyclerView) findViewById(R.id.RecyclerPedidosCab);
 
         //swipeContainer = (SwipeRefreshLayout)findViewById( R.id.Refreshcars );
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_tv);
                 BtnRegistro.startAnimation(animFadein);
-                startActivity(new Intent(MainActivity.this, RegistroFuncionesVitalesActivity.class));
+                startActivity(new Intent(PacienteActivity.this, RegistroPacienteActivity.class));
 
             }
         });
@@ -145,12 +144,12 @@ public class MainActivity extends AppCompatActivity {
     private void crearCvs() throws SQLException {
 
         StringBuilder csvContenido = new StringBuilder();
-        List<FuncionesVitales> listaFv = (ArrayList<FuncionesVitales>) dbHelper.getAll(FuncionesVitales.class);
-        csvContenido.append("ID,Paciente,% Saturacion,Temperatura,Peso,Talla,IMC,Comentario,Fecha\n");
-        for (FuncionesVitales fv : listaFv) {
-            csvContenido.append(fv.getIdFuncionVital()).append(",").append(fv.getPaciente()).append(",").append(fv.getSaturacion()).append(",")
-                    .append(fv.getTemperatura()).append(",").append(fv.getPeso()).append(",").append(fv.getTalla()).append(",")
-                    .append(fv.getIMC()).append(",").append(fv.getComentario()).append(",").append(fv.getFecha()).append("\n");
+        List<Paciente> listaPac = (ArrayList<Paciente>) dbHelper.getAll(Paciente.class);
+        csvContenido.append("ID,Paciente,Sexo,Fecha de Nacimiento,Documento de Identidad,Dirección,Seguro,Correo,Celular\n");
+        for (Paciente pac : listaPac) {
+            csvContenido.append(pac.getIdPaciente()).append(",").append(pac.getNombres()).append(",").append(pac.getSexo()).append(",").append(pac.getEdad()).append(",")
+                    .append(pac.getDocumento()).append(",").append(pac.getDireccion()).append(",").append(pac.getSeguro()).append(",").append(pac.getCorreo()).append(",")
+                    .append(pac.getCelular()).append(",").append("\n");
         }
         String csv = csvContenido.toString();
 
@@ -204,12 +203,12 @@ public class MainActivity extends AppCompatActivity {
     private void CargarFunciones() throws SQLException {
 
 
-        List<FuncionesVitales> lis = (ArrayList<FuncionesVitales>) dbHelper.getAll(FuncionesVitales.class);
+        List<Paciente> lis = (ArrayList<Paciente>) dbHelper.getAll(Paciente.class);
 
-        listaPedidos = (ArrayList<FuncionesVitales>) lis;
+        listapaciente = (ArrayList<Paciente>) lis;
 
 
-        adapter = new FuncionesAdapter(listaPedidos, this);
+        adapter = new PacienteAdapter(listapaciente, this);
         RecyclerPedidos.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

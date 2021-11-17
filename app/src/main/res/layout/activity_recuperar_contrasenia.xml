@@ -50,7 +50,7 @@
                 app:tint="@color/white" />
 
             <ImageView
-                android:id="@+id/BtnAbrirModal"
+                android:id="@+id/BtnPacGuardar"
                 android:layout_width="36dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="100dp"

@@ -50,7 +50,7 @@
                 app:tint="@color/white" />
 
             <ImageView
-                android:id="@+id/BtnAbrirModal"
+                android:id="@+id/BtnPacGuardar"
                 android:layout_width="36dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="100dp"
@@ -132,55 +132,16 @@
                             android:paddingRight="@dimen/size_30"
                             android:paddingBottom="@dimen/size_30">
 
-                            <LinearLayout
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1.0"
-                                android:layout_marginTop="@dimen/size_20"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:layout_width="@dimen/size_150"
-                                    android:layout_height="@dimen/size_40"
-                                    android:background="@drawable/background_border_round"
-                                    android:padding="@dimen/size_2">
-
-                                    <com.jaredrummler.materialspinner.MaterialSpinner
-                                        android:id="@+id/tipoDocumento"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="40dp"
-                                        android:hint="Tipo Doc"
-                                        android:textSize="@dimen/text10"
-
-
-                                        />
-                                </LinearLayout>
-
-                                <EditText
-
-                                    android:id="@+id/TxtNroDocPNuevo"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="@dimen/size_40"
-                                    android:layout_marginLeft="@dimen/size_10"
-                                    android:background="@drawable/background_border_round"
-                                    android:gravity="center_vertical"
-                                    android:hint="Nro. de documento"
-                                    android:inputType="number"
-                                    android:maxLength="16"
-                                    android:paddingLeft="@dimen/size_20"
-                                    android:textSize="@dimen/text10" />
-                            </LinearLayout>
-
 
                             <EditText
 
-                                android:id="@+id/txtNombrePaciente"
+                                android:id="@+id/txtPacDoc"
                                 android:layout_width="fill_parent"
                                 android:layout_height="@dimen/size_40"
                                 android:layout_marginTop="@dimen/size_20"
                                 android:background="@drawable/background_border_round"
                                 android:gravity="center_vertical"
-                                android:hint="Nombres"
+                                android:hint="Nro. de Documento"
                                 android:inputType="textCapSentences"
                                 android:maxLength="16"
                                 android:paddingLeft="@dimen/size_20"
@@ -188,13 +149,13 @@
 
                             <EditText
 
-                                android:id="@+id/txtApellidoPaciente"
+                                android:id="@+id/txtPacNom"
                                 android:layout_width="fill_parent"
                                 android:layout_height="@dimen/size_40"
                                 android:layout_marginTop="@dimen/size_20"
                                 android:background="@drawable/background_border_round"
                                 android:gravity="center_vertical"
-                                android:hint="Apellidos"
+                                android:hint="Nombres y Apellidos"
                                 android:inputType="textCapSentences"
                                 android:maxLength="16"
                                 android:paddingLeft="@dimen/size_20"
@@ -205,59 +166,22 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/size_20"
-                                android:text="Fecha de nacimiento"
+                                android:text="Edad"
                                 android:textSize="@dimen/text10" />
 
-                            <LinearLayout
+                            <EditText
+
+                                android:id="@+id/txtPacEdad"
                                 android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/size_5"
-                                android:orientation="horizontal">
-
-                                <EditText
-
-                                    android:id="@+id/TxtDiaNaPNuevo"
-                                    android:layout_width="@dimen/size_80"
-                                    android:layout_height="@dimen/size_40"
-                                    android:background="@drawable/background_border_round"
-                                    android:gravity="center_vertical"
-                                    android:hint="Día"
-                                    android:inputType="number"
-                                    android:maxLength="2"
-                                    android:paddingLeft="@dimen/size_20"
-                                    android:textSize="@dimen/text10" />
-
-                                <LinearLayout
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="@dimen/size_40"
-                                    android:layout_marginLeft="@dimen/size_10"
-                                    android:layout_marginRight="@dimen/size_10"
-                                    android:layout_weight="1.0"
-                                    android:background="@drawable/background_border_round"
-                                    android:padding="@dimen/size_2">
-
-                                    <com.jaredrummler.materialspinner.MaterialSpinner
-
-                                        android:id="@+id/SpMesPaPNuevo"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="40dp"
-                                        android:hint="Mes"
-                                        android:textSize="@dimen/text10" />
-                                </LinearLayout>
-
-                                <EditText
-
-                                    android:id="@+id/TxtAñoNPNuevo"
-                                    android:layout_width="@dimen/size_80"
-                                    android:layout_height="@dimen/size_40"
-                                    android:background="@drawable/background_border_round"
-                                    android:gravity="center_vertical"
-                                    android:hint="Año"
-                                    android:inputType="number"
-                                    android:maxLength="4"
-                                    android:paddingLeft="@dimen/size_20"
-                                    android:textSize="@dimen/text10" />
-                            </LinearLayout>
+                                android:layout_height="@dimen/size_40"
+                                android:layout_marginTop="@dimen/size_10"
+                                android:background="@drawable/background_border_round"
+                                android:gravity="center_vertical"
+                                android:hint="Edad"
+                                android:inputType="textCapSentences"
+                                android:maxLength="16"
+                                android:paddingLeft="@dimen/size_20"
+                                android:textSize="@dimen/text10" />
 
                             <TextView
                                 android:layout_width="fill_parent"
@@ -275,7 +199,7 @@
 
                                 <com.jaredrummler.materialspinner.MaterialSpinner
 
-                                    android:id="@+id/SpSexoPNuevo"
+                                    android:id="@+id/SpPacSexo"
                                     android:layout_width="fill_parent"
                                     android:layout_height="40dp"
                                     android:hint="Sexo"
@@ -284,7 +208,21 @@
 
 
                             <EditText
-                                android:id="@+id/TxtEmailPNuevo"
+
+                                android:id="@+id/txtPacDir"
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/size_40"
+                                android:layout_marginTop="@dimen/size_20"
+                                android:background="@drawable/background_border_round"
+                                android:gravity="center_vertical"
+                                android:hint="Dirección"
+                                android:inputType="textCapSentences"
+                                android:maxLength="16"
+                                android:paddingLeft="@dimen/size_20"
+                                android:textSize="@dimen/text10" />
+
+                            <EditText
+                                android:id="@+id/txtPacCorreo"
                                 android:layout_width="fill_parent"
                                 android:layout_height="@dimen/size_40"
                                 android:layout_marginTop="@dimen/size_20"
@@ -297,7 +235,7 @@
                                 android:textSize="@dimen/text10" />
 
                             <EditText
-                                android:id="@+id/TxtCelularPNuevo"
+                                android:id="@+id/txtPacCel"
                                 android:layout_width="fill_parent"
                                 android:layout_height="@dimen/size_40"
                                 android:layout_marginTop="@dimen/size_20"
@@ -325,7 +263,7 @@
 
                                 <com.jaredrummler.materialspinner.MaterialSpinner
 
-                                    android:id="@+id/SeguroPaNPNuevo"
+                                    android:id="@+id/SpPacSeguro"
                                     android:layout_width="fill_parent"
                                     android:layout_height="40dp"
                                     android:hint="Seguro"

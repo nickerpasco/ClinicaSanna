@@ -101,7 +101,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_marginHorizontal="10dp"
-                android:id="@+id/rvListaFuncionesV"
+                android:id="@+id/rvPacientesV"
                 android:paddingVertical="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

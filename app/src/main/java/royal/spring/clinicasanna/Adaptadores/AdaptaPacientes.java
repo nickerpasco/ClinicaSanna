@@ -6,22 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import androidx.annotation.NonNull;
-
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import java.util.List;
 
 import royal.spring.clinicasanna.R;
 import royal.spring.clinicasanna.clases.FuncionesVitales;
+import royal.spring.clinicasanna.clases.Paciente;
 
-public class AdaptaFunciones extends RecyclerView.Adapter<AdaptaFunciones.MyHolder> {
-    List<FuncionesVitales> lista;
+public class AdaptaPacientes extends RecyclerView.Adapter<AdaptaPacientes.MyHolder> {
+    List<Paciente> lista;
     Context contexto;
 
-    public AdaptaFunciones(List<FuncionesVitales> lista, Context contexto) {
+    public AdaptaPacientes(List<Paciente> lista, Context contexto) {
         this.lista = lista;
         this.contexto = contexto;
     }
@@ -35,7 +33,7 @@ public class AdaptaFunciones extends RecyclerView.Adapter<AdaptaFunciones.MyHold
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        final FuncionesVitales funcionesV = lista.get(position);
+        final Paciente paciente = lista.get(position);
 
         /*
         holder.txtPaciente.setText((1+position)+". "+ funcionesV.getPaciente());

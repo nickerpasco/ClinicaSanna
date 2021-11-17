@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,7 +33,7 @@ public class RegistroActivity extends AppCompatActivity {
         TxtTxtApellidos = (EditText)findViewById(R.id.TxtNombresApellidos);
         TxtUsuario = (EditText)findViewById(R.id.TxtUsuario);
         TxtContrasenia = (EditText)findViewById(R.id.TxtContrasenia);
-        TxtCelularPNuevo = (EditText)findViewById(R.id.TxtCelularPNuevo);
+        TxtCelularPNuevo = (EditText)findViewById(R.id.txtPacCel);
         TxtCorreo = (EditText)findViewById(R.id.TxtCorreo);
 
         atrasPrioridad.setOnClickListener(new View.OnClickListener() {

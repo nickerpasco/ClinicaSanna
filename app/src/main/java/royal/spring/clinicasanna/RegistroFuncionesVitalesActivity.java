@@ -10,6 +10,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -26,9 +28,10 @@ import java.util.Date;
 
 import royal.spring.clinicasanna.clases.FuncionesVitales;
 import royal.spring.clinicasanna.ui.ListaFuncionesVitalesActivity;
+import royal.spring.clinicasanna.ui.PacienteActivity;
 
 public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
-    ImageView btnRegistroFV, btnAtras;
+    ImageView btnRegistroFV, btnAtras, btnBuscaPaciente;
     EditText edPaciente, edSaturacion, edTemperatura, edPeso, edTalla, edComentario;
     TextInputEditText txtImc;
 
@@ -45,6 +48,7 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
         txtImc = findViewById(R.id.tiEdIMC);
         btnRegistroFV = findViewById(R.id.BtnRegistroFV);
         btnAtras = findViewById(R.id.btnAtrasFV);
+        btnBuscaPaciente = findViewById(R.id.btnBuscaPaciente);
 
         VerDatos();
         edPeso.addTextChangedListener(new TextWatcher() {
@@ -90,6 +94,15 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        btnBuscaPaciente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_tv);
+                btnBuscaPaciente.startAnimation(animFadein);
+                startActivity(new Intent(RegistroFuncionesVitalesActivity.this, PacienteActivity.class));
             }
         });
 

@@ -11,20 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Formatter;
 
-import royal.spring.clinicasanna.clases.FuncionesVitales;
+import royal.spring.clinicasanna.clases.Paciente;
 
-public class FuncionesAdapter extends RecyclerView.Adapter<FuncionesAdapter.ViewHolderVentaDelDia> {
+public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.ViewHolderVentaDelDia> {
 
-    ArrayList<FuncionesVitales> listaVentasdeldia;
+    ArrayList<Paciente> listaVentasdeldia;
     Context mContext;
 
-    public FuncionesAdapter(ArrayList<FuncionesVitales> listaVentasdeldia, Context mContext) {
+    public PacienteAdapter(ArrayList<Paciente> listaVentasdeldia, Context mContext) {
 
         this.listaVentasdeldia = listaVentasdeldia;
         this.mContext = mContext;
@@ -32,32 +31,32 @@ public class FuncionesAdapter extends RecyclerView.Adapter<FuncionesAdapter.View
 
     @NonNull
     @Override
-    public FuncionesAdapter.ViewHolderVentaDelDia onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_list, null, false);
-        return new FuncionesAdapter.ViewHolderVentaDelDia(v);
+    public PacienteAdapter.ViewHolderVentaDelDia onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.pac_list, null, false);
+        return new PacienteAdapter.ViewHolderVentaDelDia(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FuncionesAdapter.ViewHolderVentaDelDia holder, int position) {
+    public void onBindViewHolder(@NonNull PacienteAdapter.ViewHolderVentaDelDia holder, int position) {
         DecimalFormatSymbols separadoresPersonalizados = new DecimalFormatSymbols();
         separadoresPersonalizados.setDecimalSeparator('.');
         final DecimalFormat formato1 = new DecimalFormat("#.00", separadoresPersonalizados);
-        final FuncionesAdapter.ViewHolderVentaDelDia viewHolder = (FuncionesAdapter.ViewHolderVentaDelDia) holder;
-        final FuncionesVitales item = listaVentasdeldia.get(position);
+        final PacienteAdapter.ViewHolderVentaDelDia viewHolder = (PacienteAdapter.ViewHolderVentaDelDia) holder;
+        final Paciente item = listaVentasdeldia.get(position);
         // holder.TxtNombrePedido.setText(item.getIdVenta());
 
 
-        holder.textView.setText(item.getPaciente());
-        holder.TxtFecha.setText(item.getFecha());
+        holder.textView.setText(item.getNombres());
+        holder.TxtFecha.setText(item.getEdad());
         holder.txtdireccionPedido.setText(item.getDireccion());
-        holder.txtEstadoPedido.setText(item.getEstado());
-        holder.NroDco.setText(item.getMedico());
-        holder.TxtMontoTotal.setText(String.format("%s", new Formatter().format("%09d", item.getIdFuncionVital())));
-        holder.linearFuncionesV.setOnClickListener(new View.OnClickListener() {
+        holder.txtEstadoPedido.setText(item.getSeguro());
+        holder.NroDco.setText(item.getDocumento());
+        holder.TxtMontoTotal.setText(String.format("%s", new Formatter().format("%09d", item.getIdPaciente())));
+        holder.linearPacientes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext,RegistroFuncionesVitalesActivity.class);
-                intent.putExtra("ID_fv",item.getIdFuncionVital()+"");
+                Intent intent = new Intent(mContext,RegistroPacienteActivity.class);
+                intent.putExtra("ID_pac",item.getIdPaciente()+"");
                 mContext.startActivity(intent);
             }
         });
@@ -72,13 +71,13 @@ public class FuncionesAdapter extends RecyclerView.Adapter<FuncionesAdapter.View
     public class ViewHolderVentaDelDia extends RecyclerView.ViewHolder {
         TextView txtNombrellegada, txtdireccionPedido, NroDco, txtEstadoPedido, TxtMontoTotal, TxtFecha;
         TextView tiempo, textView;
-        LinearLayout linearFuncionesV;
+        LinearLayout linearPacientes;
 
         public ViewHolderVentaDelDia(View itemView) {
             super(itemView);
             // TxtNombrePedido = itemView.findViewById(R.id.shopping_cart_item_name_text_view);
 
-            linearFuncionesV = itemView.findViewById(R.id.LinearPacientes);
+            linearPacientes = itemView.findViewById(R.id.LinearPacientes);
             txtdireccionPedido = itemView.findViewById(R.id.txtdireccionPedido);
             txtEstadoPedido = itemView.findViewById(R.id.txtEstadoPedido);
             TxtFecha = itemView.findViewById(R.id.TxtFecha);

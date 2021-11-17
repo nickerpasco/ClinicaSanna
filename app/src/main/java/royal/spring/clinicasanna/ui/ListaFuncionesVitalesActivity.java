@@ -6,19 +6,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import royal.spring.clinicasanna.Adaptadores.AdaptaFunciones;
 import royal.spring.clinicasanna.DBHelper;
 import royal.spring.clinicasanna.R;
 import royal.spring.clinicasanna.RegistroFuncionesVitalesActivity;
-import royal.spring.clinicasanna.clases.FuncionesVitales;
-import royal.spring.clinicasanna.clases.Usuario;
 
 public class ListaFuncionesVitalesActivity extends AppCompatActivity {
 
@@ -31,7 +24,7 @@ public class ListaFuncionesVitalesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_funciones_vitales);
 
         BtnRegistro =(TextView)findViewById(R.id.BtnRegistro);
-        rvListaFunciones = findViewById(R.id.rvListaFuncionesV);
+        rvListaFunciones = findViewById(R.id.rvPacientesV);
 
         BtnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
