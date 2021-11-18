@@ -186,7 +186,6 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
 //                funcionesV.setIMC(Double.parseDouble(txtImc.getText().toString()));
                 funcionesV.setComentario(edComentario.getText().toString());
                 funcionesV.setEstado("ATENDIDO");
-                funcionesV.setDireccion("Direccion CLiente");
                 funcionesV.setFecha(formatearFecha(new java.util.Date()));
                 dbHelper.create(funcionesV);
                 Toast.makeText(this, "Datos Registrados", Toast.LENGTH_SHORT).show();
