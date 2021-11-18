@@ -104,7 +104,7 @@ public class RegistroPacienteActivity extends AppCompatActivity {
                 paciente.setNombres(txtNombre.getText().toString());
                 paciente.setDocumento(txtDoc.getText().toString());
                 paciente.setCorreo(txtCorreo.getText().toString());
-                paciente.setCorreo(txtCelular.getText().toString());
+                paciente.setCelular(txtCelular.getText().toString());
                 paciente.setEdad(Integer.parseInt(txtEdad.getText().toString()));
                 paciente.setDireccion(txtDireccion.getText().toString());
                 dbHelper.create(paciente);

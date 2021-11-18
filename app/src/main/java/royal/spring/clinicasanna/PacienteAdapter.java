@@ -54,11 +54,11 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.ViewHo
 
 
         holder.textView.setText(item.getNombres());
-        holder.TxtFecha.setText(""+item.getEdad());
-        holder.txtdireccionPedido.setText(item.getDireccion());
+        holder.TxtFecha.setText("Celular : "+item.getCelular());
+        holder.txtdireccionPedido.setText("Dir : " +item.getDireccion());
         holder.txtEstadoPedido.setText(item.getSeguro());
-        holder.NroDco.setText(item.getDocumento());
-        holder.TxtMontoTotal.setText(String.format("%s", new Formatter().format("%09d", item.getIdPaciente())));
+        holder.NroDco.setText("Documento : " +item.getDocumento());
+        holder.TxtMontoTotal.setText("Nro Paciente :" + String.format("%s", new Formatter().format("%09d", item.getIdPaciente())));
         holder.linearPacientes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

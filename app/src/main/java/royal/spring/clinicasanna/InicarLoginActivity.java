@@ -2,9 +2,12 @@ package royal.spring.clinicasanna;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -38,6 +41,12 @@ public class InicarLoginActivity extends AppCompatActivity {
         textView52 = findViewById(R.id.textView52);
         editText = findViewById(R.id.editText);
         editText2 = findViewById(R.id.editText2);
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
