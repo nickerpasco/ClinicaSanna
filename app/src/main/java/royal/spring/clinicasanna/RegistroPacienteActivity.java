@@ -85,7 +85,20 @@ public class RegistroPacienteActivity extends AppCompatActivity {
             DBHelper dbHelper;
             dbHelper = new DBHelper(this);
 
+            if(txtCelular.length()<9){
+                Toast.makeText(this, "El celular debe tener 9 caracteres", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            boolean ok =  repeatedString(txtCorreo.getText().toString(),"@",-1);
+            if(ok){
+                Toast.makeText(this, "El correo tiene dos a más arrobas", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             try {
+
+
 
                 Paciente paciente = new Paciente();
                 paciente.setNombres(txtNombre.getText().toString());
@@ -104,6 +117,14 @@ public class RegistroPacienteActivity extends AppCompatActivity {
         }else {Toast.makeText(this, "Complete todos los espacios", Toast.LENGTH_SHORT).show();}
     }
 
+
+    public static boolean repeatedString(String str, String repeat, int lastIndex) {
+        int next = str.indexOf(repeat, lastIndex+repeat.length());
+
+        if(next == -1) return false;
+        else if(next-lastIndex == repeat.length()) return true;
+        else return repeatedString(str, repeat, next);
+    }
     public static String formatearFecha(Date date) {
         SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//dd/MM/yyyy
 

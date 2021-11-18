@@ -53,6 +53,11 @@ public class RecuperarContraseniaActivity extends AppCompatActivity {
                         return;
                     }
 
+                    if(pass.length()<9){
+                        Toast.makeText(RecuperarContraseniaActivity.this, "El celular debe tener 9 caracteres", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     List<Usuario> lis = (ArrayList<Usuario>) dbHelper.getAll(Usuario.class);
 
                     if (ValidarUsuario(lis) !=null){

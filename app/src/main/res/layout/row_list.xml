@@ -90,7 +90,7 @@
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:text="{viewModel.direccPedido}"
+                        android:text=""
                         android:textColor="@color/colorLightGray"
                         android:textSize="12dp"
                         android:textStyle="bold" />

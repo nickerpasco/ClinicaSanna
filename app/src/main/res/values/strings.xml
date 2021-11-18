@@ -16,7 +16,8 @@
     <!-- ALFABETOS-->
     <string name="abc_no_numbers">abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ</string>
     <string name="abc_numbers">abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ12345678910</string>
-    <string name="abc_numbersarroba">abcdefghijklmnñopqrstuvwxyz@ ABCDEFGHIJKLMNÑOPQRSTUVWXYZ12345678910</string>
+    <string name="abc_numbersus">abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ12345678910</string>
+    <string name="abc_numbersarroba">abcdefghijklmnñopqrstuvwxyz@.ABCDEFGHIJKLMNÑOPQRSTUVWXYZ12345678910</string>
 
 
 </resources>

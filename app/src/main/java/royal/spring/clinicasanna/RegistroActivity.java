@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import royal.spring.clinicasanna.clases.Usuario;
+import royal.spring.clinicasanna.ui.MainActivity;
 
 public class RegistroActivity extends AppCompatActivity {
 
@@ -52,6 +55,9 @@ public class RegistroActivity extends AppCompatActivity {
                 d.execute();
 
                  */
+
+
+
                 GuardarUsuario();
             }
         });
@@ -63,26 +69,64 @@ public class RegistroActivity extends AppCompatActivity {
         try {
             Usuario usuario = new Usuario();
 
-            if(TxtTxtApellidos.getText().equals("")){
+            if(TxtTxtApellidos.length()==0){
                 Toast.makeText(this, "Ingrese Apellido", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if(TxtUsuario.getText().equals("")){
+            if(TxtUsuario.length()==0){
                 Toast.makeText(this, "Ingrese Usuario", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if(TxtContrasenia.getText().equals("")){
+            if(TxtContrasenia.length()==0){
                 Toast.makeText(this, "Ingrese Contraseña", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if(TxtCelularPNuevo.getText().equals("")){
+            if(TxtCelularPNuevo.length()==0){
                 Toast.makeText(this, "Ingrese Celular", Toast.LENGTH_SHORT).show();
                 return;
+            }else{
+
+                if(TxtCelularPNuevo.length()<9){
+                    Toast.makeText(this, "El celular debe tener 9 caracteres", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
             }
-            if(TxtCorreo.getText().equals("")){
+            if(TxtCorreo.length()==0){
                 Toast.makeText(this, "Ingrese Correo", Toast.LENGTH_SHORT).show();
                 return;
+            }else{
+                boolean ok =  repeatedString(TxtCorreo.getText().toString(),"@",-1);
+                if(ok){
+                    Toast.makeText(this, "El correo tiene dos a más arrobas", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
+
+
+
+            dbHelper = new DBHelper(this); // INSTANCIAR PAPUS
+            try {
+
+                List<Usuario> lis = (ArrayList<Usuario>) dbHelper.getAll(Usuario.class);
+
+                if (Acceder(lis)){
+
+
+                    Toast.makeText(this, "El usuario : " + TxtUsuario.getText().toString() + " Ya existe en la BD..", Toast.LENGTH_SHORT).show();
+
+                    return;
+
+                }else{
+                    Toast.makeText(this, "Usuario No encontrado", Toast.LENGTH_SHORT).show();
+                }
+
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+
 
             usuario.setApellidosNombres(TxtTxtApellidos.getText().toString());
             usuario.setCelular(TxtCelularPNuevo.getText().toString());
@@ -91,13 +135,72 @@ public class RegistroActivity extends AppCompatActivity {
             usuario.setUsuario(TxtUsuario.getText().toString());
             dbHelper.create(usuario);
             List<Usuario> lis = (ArrayList<Usuario>) dbHelper.getAll(Usuario.class);
-            Toast.makeText(this, "Usuario : " + lis.get(0).getUsuario()  +" Registrado ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Usuario : " + TxtUsuario.getText().toString()  +" Registrado ", Toast.LENGTH_SHORT).show();
             finish();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
+
+    private boolean Acceder(List<Usuario> lis) {
+
+        String usuario = TxtUsuario.getText().toString();
+
+
+
+        for (Usuario item : lis){
+
+            if(item.getUsuario().equals(usuario)){
+
+
+
+                return true;
+            }
+
+        }
+
+        return false;
+
+    }
+
+    public static boolean repeatedString(String str, String repeat, int lastIndex) {
+        int next = str.indexOf(repeat, lastIndex+repeat.length());
+
+        if(next == -1) return false;
+        else if(next-lastIndex == repeat.length()) return true;
+        else return repeatedString(str, repeat, next);
+    }
+
+    private boolean ValidarCarates(String cadena) {
+
+
+        int contador = 0;
+        char caracter = 0;
+
+        while (cadena.length() != 0) { // mientras la cadena tenga algún carácter la recorremos
+            int contadorAux = 0;
+            for (int j = 0; j < cadena.length(); j++) { // recorremos la cadena para contar los caracteres del indice cero
+                if (cadena.charAt(0) == cadena.charAt(j)) {
+                    contadorAux++;
+                }
+            }
+
+            if (contadorAux > contador) { // si el contador del nuevo caracter es mayor al que ya estaba guardado, lo cambiamos
+                contador = contadorAux;
+                caracter = cadena.charAt(0);
+            }
+
+            // borramos los carácteres contados para ahorrar entrar mas veces para contarlos otra vez
+            cadena = cadena.replaceAll(cadena.charAt(0) + "", "");
+        }
+
+        if(contador>1){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 
     private class EsperarTask extends AsyncTask<Void,Void,Void>

@@ -165,8 +165,20 @@ public class RegistroFuncionesVitalesActivity extends AppCompatActivity {
 
             try {
 
+                Gson gson = new Gson();
+                SharedPreferences preferences = getSharedPreferences( "PrefeM", Context.MODE_PRIVATE );
+                String json = preferences.getString("ModelConfiguracion", "");
+                Paciente ob = gson.fromJson(json, Paciente.class);
+
+                if(ob==null){
+                    return;
+                }
+
+
+
                 FuncionesVitales funcionesV = new FuncionesVitales();
                 funcionesV.setPaciente(edPaciente.getText().toString());
+                funcionesV.setDireccion(ob.getDireccion());
                 funcionesV.setSaturacion(Double.parseDouble(edSaturacion.getText().toString()));
                 funcionesV.setTemperatura(Double.parseDouble(edTemperatura.getText().toString()));
                 funcionesV.setPeso(Double.parseDouble(edPeso.getText().toString()));
